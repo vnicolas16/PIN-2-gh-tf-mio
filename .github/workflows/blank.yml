@@ -4,12 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       # Working directory input from user.
-      resource:
-        type: choice
-        description: Choose the resource
-        options:
-        - name_of_dir1
-        - name_of_dir2
+   
       # Terraform action you want to perform
       action:
         description: 'Terraform Action to Perform'
@@ -23,9 +18,6 @@ jobs:
     name: "Terraform_apply"
     if: ${{ github.event.inputs.action == 'Terraform_apply' }}
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ${{ github.event.inputs.resource }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -57,9 +49,6 @@ jobs:
     name: "Terraform_destroy"
     if: ${{ github.event.inputs.action == 'Terraform_destroy' }}
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ${{ github.event.inputs.resource }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
