@@ -12,4 +12,4 @@ jobs:
    steps:
      - name: Terraform destroy
        id: destroy
-       run: terraform destroy --force
+       run: terraform destroy -force
