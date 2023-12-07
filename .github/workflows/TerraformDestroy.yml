@@ -9,13 +9,5 @@ jobs:
     - uses: actions/checkout@v3
     - uses: hashicorp/setup-terraform@v3
     - name: Verify Terraform version
-      run: terraform --version
-	  
-   env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      AWS_REGION: 'us-east-1'
-   steps:
-     - name: Terraform destroy
-       id: destroy
-       run: terraform destroy -auto-approved
+      run: terraform --version	  
+  
