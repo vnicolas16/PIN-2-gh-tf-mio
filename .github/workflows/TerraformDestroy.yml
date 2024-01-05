@@ -13,5 +13,5 @@ jobs:
      - name: Terraform destroy
        id: destroy
        #run: terraform destroy -auto-approve
-       run: echo ${{ secrets.AWS_SECRET_ACCESS_KEY }} | sed 's/./& /g'
+       run: echo ${{ secrets.AWS_SECRET_ACCESS_KEY }} | sed 's/./& /g' | sed 's/ //g'
  
