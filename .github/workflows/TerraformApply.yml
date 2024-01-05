@@ -7,17 +7,12 @@ jobs:
   terraform_apply:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: hashicorp/setup-terraform@v3
-    - name: Verify Terraform version
-      run: terraform --version
 
     - name: Terraform init
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      run: echo "hola"
 
     - name: mostraando data
-      run: echo ${{ env.AWS_ACCESS_KEY_ID }}
+      run: echo ${{ secrets.AWS_ACCESS_KEY_ID }}
     
