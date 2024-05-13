@@ -1,28 +1,15 @@
-name: Greet with Name (Workflow Dispatch)
+name: Saludo Automático
 
 on:
   workflow_dispatch:
     inputs:
-      name:
-        description: 'Your Name'
-        required: false
-        default: 'GitHub User'
+      nombre:
+        description: 'Por favor, introduce tu nombre:'
+        required: true
 
 jobs:
-  greet:
+  saludar:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Get user name from input
-        id: get_name
-        run: |
-          name = github.event.inputs.name
-          echo "::set-output name=name::$name"
-
-      - name: Greet user
-        run: |
-          name = steps.get_name.outputs.name
-          echo "Hello, $name! Welcome to this GitHub Actions workflow."
+      - name: Saludar
+        run: echo "Hola, ${ { github.event.inputs.nombre } }! ¿Cómo estás?"
